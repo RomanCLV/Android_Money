@@ -16,6 +16,13 @@ public class Currency implements Parcelable {
         this.flagId = flagId;
     }
 
+    public Currency(CurrencyType currency, int flagId, double value) {
+        this.currencyType = currency;
+        this.currencyOrdinal = this.currencyType.ordinal();
+        this.flagId = flagId;
+        this.value = value;
+    }
+
     public CurrencyType getCurrencyType() {
         return this.currencyType;
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootItem"
     android:layout_width="match_parent"
-    android:layout_height="60dp">
+    android:layout_height="65dp">
 
     <ImageView
         android:id="@+id/flagImageView"
@@ -36,13 +36,14 @@
         android:id="@+id/rateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#787878"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/flagImageView"
-        app:layout_constraintStart_toStartOf="@+id/nameTextView"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
-        tools:text="1.00" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        tools:text="1.21" />
 
     <TextView
         android:id="@+id/nameTextView"
@@ -52,9 +53,60 @@
         android:layout_marginLeft="30dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/rateTextView"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/flagImageView"
         app:layout_constraintTop_toTopOf="@+id/flagImageView"
         tools:text="Euro" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1.00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/flagImageView"
+        app:layout_constraintStart_toStartOf="@+id/nameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="="
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/symbole2TextView"
+        app:layout_constraintStart_toEndOf="@+id/symbole2TextView"
+        app:layout_constraintTop_toTopOf="@+id/symbole2TextView" />
+
+    <TextView
+        android:id="@+id/symbole2TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        tools:text="€" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:text="$"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rateTextView"
+        app:layout_constraintStart_toEndOf="@+id/rateTextView"
+        app:layout_constraintTop_toTopOf="@+id/rateTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

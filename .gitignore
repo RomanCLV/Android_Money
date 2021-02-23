@@ -23,7 +23,6 @@ gen/
 out/
 build/
 app/build/
-app/build.gradle
 #  Uncomment the following line in case you need and you don't have the release build type files in your app
 # release/
 
@@ -31,7 +30,6 @@ app/build.gradle
 .gradle/
 gradle/
 build/
-build.gradle
 gradlew
 gradlew.bat
 settings.gradle
