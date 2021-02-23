@@ -6,6 +6,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 poundConvertedTextView.setText(Double.toString(round(currency.convertValue(amount, CurrencyType.Pound), 2)));
                 dollarConvertedTextView.setText(Double.toString(round(currency.convertValue(amount, CurrencyType.Dollar), 2)));
                 yenConvertedTextView.setText(Double.toString(round(currency.convertValue(amount, CurrencyType.Yen), 2)));
+                Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.blink);
+                euroConvertedTextView.startAnimation(animation);
+                poundConvertedTextView.startAnimation(animation);
+                dollarConvertedTextView.startAnimation(animation);
+                yenConvertedTextView.startAnimation(animation);
             }
         });
         findViewById(R.id.aboutButton).setOnClickListener(new View.OnClickListener() {
