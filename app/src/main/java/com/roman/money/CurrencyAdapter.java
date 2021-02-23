@@ -38,7 +38,7 @@ public class CurrencyAdapter extends Adapter<CurrencyAdapter.ViewHolder> impleme
         holder.name.setText(currency.getName());
         holder.symbol.setText(currency.getSymbol());
         holder.symbol2.setText(currency.getSymbol());
-        holder.rate.setText(Double.toString(currency.getValue()));
+        holder.rate.setText(Double.toString(MainActivity.round(currency.getValue(), 4)));
         holder.itemView.setTag(currency);
         holder.itemView.setOnClickListener(this);
     }
@@ -68,6 +68,7 @@ public class CurrencyAdapter extends Adapter<CurrencyAdapter.ViewHolder> impleme
         final TextView symbol;
         final TextView symbol2;
         final TextView rate;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
