@@ -10,6 +10,11 @@ public class Currency implements Parcelable {
     private double value;
     private final int flagId;
 
+    private static double rateEuroToDollar = 1.0;
+    private static double ratePoundToDollar = 1.0;
+    private static double rateDollarToDollar = 1.0;
+    private static double rateYenToDollar = 1.0;
+
     public Currency(CurrencyType currency, int flagId) {
         this.currencyType = currency;
         this.currencyOrdinal = this.currencyType.ordinal();
@@ -20,7 +25,7 @@ public class Currency implements Parcelable {
         this.currencyType = currency;
         this.currencyOrdinal = this.currencyType.ordinal();
         this.flagId = flagId;
-        this.value = value;
+        this.setValue(value);
     }
 
     public CurrencyType getCurrencyType() {
@@ -33,6 +38,12 @@ public class Currency implements Parcelable {
 
     public void setValue(double value) {
         this.value = value;
+        switch (currencyType) {
+            case Euro: rateEuroToDollar = this.value; return;
+            case Pound: ratePoundToDollar = this.value; return;
+            case Dollar: rateDollarToDollar = this.value; return;
+            case Yen: rateYenToDollar = this.value; return;
+        }
     }
 
     public int getFlagId() {
@@ -61,16 +72,16 @@ public class Currency implements Parcelable {
 
     private static double getCurrencyToDollarFactor(CurrencyType currency) {
         switch (currency) {
-            case Euro: return 1.21;
-            case Pound: return 1.40;
-            case Yen: return 0.0095;
-            case Dollar:
-            default: return 1.00;
+            case Euro: return rateEuroToDollar;
+            case Pound: return ratePoundToDollar;
+            case Yen: return rateYenToDollar;
+            case Dollar: return rateDollarToDollar;
+            default: return 1.0;
         }
     }
 
-    public double convertValue(CurrencyType toCurrency) {
-        return this.value * getCurrencyToDollarFactor(this.currencyType) / getCurrencyToDollarFactor(toCurrency);
+    public double convertValue(double value, CurrencyType toCurrency) {
+        return value * getCurrencyToDollarFactor(this.currencyType) / getCurrencyToDollarFactor(toCurrency);
     }
 
     protected Currency(Parcel in) {
@@ -84,6 +95,7 @@ public class Currency implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeDouble(value);
         dest.writeInt(flagId);
+        dest.writeInt(currencyOrdinal);
     }
 
     @Override

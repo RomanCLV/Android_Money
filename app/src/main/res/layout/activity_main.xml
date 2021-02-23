@@ -33,13 +33,13 @@
         android:id="@+id/currencyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_unKnow_textView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="@+id/convertEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/convertEditText"
-        app:layout_constraintTop_toTopOf="@+id/convertEditText" />
+        app:layout_constraintTop_toTopOf="@+id/convertEditText"
+        tools:text="€" />
 
     <EditText
         android:id="@+id/convertEditText"

@@ -33,24 +33,25 @@ public class MainActivity extends AppCompatActivity {
                 TextView yenConvertedTextView = findViewById(R.id.yenConvertedTextView);
 
                 String amountStr = convertEditText.getText().toString();
-
+                double amount = 0.0;
                 if (amountStr.isEmpty()) {
                     Toast.makeText(MainActivity.this, "An amount is required!",
                             Toast.LENGTH_SHORT).show();
                 }
                 else {
                     try {
-                        currency.setValue(Double.parseDouble(amountStr));
+                        //currency.setValue(Double.parseDouble(amountStr));
+                        amount = Double.parseDouble(amountStr);
                     }
                     catch (NumberFormatException e) {
                         Toast.makeText(MainActivity.this, "Number value expected!",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
-                euroConvertedTextView.setText(Double.toString(round(currency.convertValue(CurrencyType.Euro), 2)));
-                poundConvertedTextView.setText(Double.toString(round(currency.convertValue(CurrencyType.Pound), 2)));
-                dollarConvertedTextView.setText(Double.toString(round(currency.convertValue(CurrencyType.Dollar), 2)));
-                yenConvertedTextView.setText(Double.toString(round(currency.convertValue(CurrencyType.Yen), 2)));
+                euroConvertedTextView.setText(Double.toString(round(currency.convertValue(amount, CurrencyType.Euro), 2)));
+                poundConvertedTextView.setText(Double.toString(round(currency.convertValue(amount, CurrencyType.Pound), 2)));
+                dollarConvertedTextView.setText(Double.toString(round(currency.convertValue(amount, CurrencyType.Dollar), 2)));
+                yenConvertedTextView.setText(Double.toString(round(currency.convertValue(amount, CurrencyType.Yen), 2)));
             }
         });
         findViewById(R.id.aboutButton).setOnClickListener(new View.OnClickListener() {
@@ -66,9 +67,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private double round(double value, int places) {
+    public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
-
         long factor = (long) Math.pow(10, places);
         value *= factor;
         long tmp = Math.round(value);
