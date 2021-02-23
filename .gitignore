@@ -1,3 +1,10 @@
+/local.properties
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
 # Built application files
 *.apk
 *.aar
@@ -14,11 +21,13 @@
 bin/
 gen/
 out/
+build/
 #  Uncomment the following line in case you need and you don't have the release build type files in your app
 # release/
 
 # Gradle files
 .gradle/
+.gradle
 build/
 
 # Local configuration file (sdk path, etc)
@@ -44,6 +53,10 @@ captures/
 .idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/libraries
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/navEditor.xml
 # Android Studio 3 in .gitignore file.
 .idea/caches
 .idea/modules.xml
