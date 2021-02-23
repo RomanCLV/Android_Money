@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Money</string>
+    <string name="mainPicture_imageView_description">icon</string>
+    <string name="euro_imageView_description">euro picture</string>
+    <string name="pound_imageView_description">pound picture</string>
+    <string name="dollar_imageView_description">dollar picture</string>
+    <string name="yen_imageView_description">yen picture</string>
+    <string name="convert_editText_default">0</string>
+    <string name="label_euro_textView">€</string>
+    <string name="label_dollar_textView">$</string>
+    <string name="label_pound_textView">£</string>
+    <string name="label_yen_textView">¥</string>
+    <string name="label_unKnow_textView">&amp;</string>
+    <string name="converted_textView">0.00</string>
+    <string name="converter_button_text">Convert</string>
+    <string name="about_button_text">About</string>
+    <string name="label_version_textView">v1.0.0</string>
+    <string name="label_by_textView">by</string>
+    <string name="author_name">Author</string>
+    <string name="author_mail">email</string>
+</resources>
